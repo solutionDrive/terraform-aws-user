@@ -11,5 +11,6 @@ output "user_name" {
 }
 
 output "password" {
+  count = "${var.gpg_key != "" ? 1 : 0}"
   value = "${aws_iam_user_login_profile.user.encrypted_password}"
 }

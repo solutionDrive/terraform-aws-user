@@ -10,6 +10,7 @@ variable "force_destroy" {
 
 variable "gpg_key" {
   description = "Base64 encoded pgp key, see terraform documentation"
+  default     = ""
 }
 
 variable "user_name" {}

@@ -11,5 +11,9 @@ output "user_name" {
 }
 
 output "password" {
-  value = "${aws_iam_user_login_profile.user.encrypted_password}"
+  value = "${
+    var.gpg_key != "" ?
+    join(" - ", aws_iam_user_login_profile.user.*.encrypted_password) :
+    "no-value"
+  }"
 }
